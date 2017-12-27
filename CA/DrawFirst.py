@@ -25,9 +25,9 @@ def closeFigure(event):
     Data.flag = False  # 循环标记为Fasle
 def drawWallAndExit():
     plt.plot([0,Data.ROOM_M],[0,0],c='b')
-    plt.plot([0,0],[0,8],c='b')
-    plt.plot([0,0],[12,Data.ROOM_N],c='b')
-    plt.plot([0,Data.ROOM_M],[Data.ROOM_N,Data.ROOM_N],c='b')
+    plt.plot([0,8],[Data.ROOM_N,Data.ROOM_N],c='b')
+    plt.plot([12,Data.ROOM_M],[Data.ROOM_N,Data.ROOM_N],c='b')
+    # plt.plot([0,Data.ROOM_M],[Data.ROOM_N,Data.ROOM_N],c='b')
     plt.plot([0,0],[0,Data.ROOM_N],c='b')
     plt.plot([Data.ROOM_M,Data.ROOM_M],[0,Data.ROOM_N],c='b')
 

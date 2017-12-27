@@ -1,10 +1,11 @@
-import InitPeople,Rule,Block,Data,DrawFirst
+import InitPeople,Rule,Block,Data,DrawFirst,Income
 
 def run_f():
     allPeople=InitPeople.creatAppointPeo()
     while Data.flag:
         for p in allPeople:
-            direction=6
+            # Income.addIncome(p, allPeople)
+            direction=8
             Rule.PeopleMove(p,direction)
         DrawFirst.drawPeople(allPeople)
 
