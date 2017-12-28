@@ -18,25 +18,26 @@ def addIncome(self,p):
     v3=[]
     v4=[]
     v5=[]
-    v6=[]
-    '''计算每个收益将其存入v1,v2,......中'''
-    for i in p.addIncome.value():
-        v1.append(i)
-    for i in p.wallIncome.value():
-        v2.append(i)
-    for i in p.distanceIncome.value():
-        v3.append(i)
-    for i in p.kindIncome.value():
-        v4.append(i)
-    for i in p.nextCrowded.value():
-        v5.append(i)
-    for i in p.jamIncome.value():
-        v6.append(i)
 
-    income=list(map(lambda x,y,z,q:[x + y + z + q],v1,v2,v3,v4))
+    '''计算每个收益将其存入v1,v2,......中'''
+    for i in p.wallIncome.value():
+        v1.append(i)
+    for i in p.distanceIncome.value():
+        v2.append(i)
+    for i in p.kindIncome.value():
+        v3.append(i)
+    for i in p.nextCrowded.value():
+        v4.append(i)
+    for i in p.jamIncome.value():
+        v5.append(i)
+
+    income=list(map(lambda x,y,z,q,w:[x+y+z+q+w],v1,v2,v3,v4,v5))
+    for key in p.allIncome:
+        p.allIncome[key] = income[key - 1][0]
+
 def sortDic(self,p):
     '''对字典的值进行排序'''
-    dic=sorted(p.allInCome.items(),key=lambda d:d[1],reverse=True)
+    dic=sorted(p.allIncome.items(),key=lambda d:d[1],reverse=True)
     '''由于dic的type为 ([],[],[],[])需要将其转换为字典'''
     k=[]  #存放key的列表
     v=[]  #存放vule的列表
@@ -44,7 +45,7 @@ def sortDic(self,p):
         k.append(i[0])  #将key存入
         v.append(i[1])  #将value存入
     fin = dict(map(lambda x,y:[x, y],k,v))  #转化为字典
-    p.allInComeBySort=fin  #将其存入p
+    p.allIncomeBySort=fin  #将其存入p
 
 '''---------------------------------------------------------------------------------------------'''
 def wallIncome(self,p):
@@ -101,22 +102,40 @@ def wallIncome(self,p):
 def isnextCrowded(self,p,allPeople):
     for peo in allPeople:
         p.nextCrowded={1:0.0,2:0.0,3:0.3,4:0.0,5:0.0,6:0.0,7:0.0,8:0.0,9:0.0}
-        if p.x-1==peo.x and p.y-1==peo.y:
-            p.nextCrowded[1]=1000
-        elif p.x-1==peo.x:
-            p.nextCrowded[4]=1000
-        elif p.x-1==peo.x and p.y+1==peo.y:
-            p.nextCrowded[7]=1000
-        elif p.y-1==peo.y:
-            p.nextCrowded[2]=1000
-        elif p.y+1==peo.y:
-            p.nextCrowded[8]=1000
-        elif p.x+1==peo.x and p.y-1==peo.y:
-            p.nextCrowded[3]=1000
-        elif p.x+1==peo.x:
-            p.nextCrowded[6]=1000
-        elif p.x+1==peo.x and p.y+1==peo.y:
-            p.nextCrowded[9]=1000
+        if p.type==False and peo.type==False:
+            if p.x-1==peo.x and p.y-1==peo.y:
+              p.nextCrowded[1]=1000
+            elif p.x-1==peo.x:
+              p.nextCrowded[4]=1000
+            elif p.x-1==peo.x and p.y+1==peo.y:
+              p.nextCrowded[7]=1000
+            elif p.y-1==peo.y:
+              p.nextCrowded[2]=1000
+            elif p.y+1==peo.y:
+              p.nextCrowded[8]=1000
+            elif p.x+1==peo.x and p.y-1==peo.y:
+              p.nextCrowded[3]=1000
+            elif p.x+1==peo.x:
+              p.nextCrowded[6]=1000
+            elif p.x+1==peo.x and p.y+1==peo.y:
+              p.nextCrowded[9]=1000
+        else:
+            if p.x - 1 == peo.x and p.y - 1 == peo.y:
+                p.nextCrowded[1] =-1000
+            elif p.x - 1 == peo.x:
+                p.nextCrowded[4] =-1000
+            elif p.x - 1 == peo.x and p.y + 1 == peo.y:
+                p.nextCrowded[7] =-1000
+            elif p.y - 1 == peo.y:
+                p.nextCrowded[2] =-1000
+            elif p.y + 1 == peo.y:
+                p.nextCrowded[8] =-1000
+            elif p.x + 1 == peo.x and p.y - 1 == peo.y:
+                p.nextCrowded[3] =-1000
+            elif p.x + 1 == peo.x:
+                p.nextCrowded[6] =-1000
+            elif p.x + 1 == peo.x and p.y + 1 == peo.y:
+                p.nextCrowded[9] =-1000
 
 
 

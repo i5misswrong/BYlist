@@ -25,5 +25,13 @@ def creatAppointPeo():
     b3.y = 10
     b3.type = True
     allPeople.append(b3)
-
     return allPeople
+
+# def creatWall():
+#     allWall=[]
+#     for i in range(40):
+#         for ii in range(8):
+#             D=[i,0]
+#             U=[ii,0]
+#             L=[0,i]
+#             R=[Data.ROOM_M,i]
