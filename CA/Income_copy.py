@@ -3,22 +3,22 @@ import Data,Block
 import InitPeople
 import math
 
-def allIncome(self,p,allPeople):
-    self.addIncome(p)
-    self.wallIncome(p)
+def allIncome(p,allPeople):
+    wallIncome(p)
     # self.distanceIncome(p)
-    self.sortDic(p)
-    # self.kindIncome(p)
-    self.isnextCrowded(p,allPeople)
+    # addIncome(p)
+    # sortDic(p)
+    # # self.kindIncome(p)
+    # isnextCrowded(p,allPeople)
     # self.jamIncome(p)
 
-def addIncome(self,p):
+def addIncome(p):
     v1=[]
     v2=[]
     # v3=[]
     # v4=[]
     # v5=[]
-
+    wallIncome(p.wallIncome)
     '''计算每个收益将其存入v1,v2,......中'''
     for i in p.wallIncome.value():
         v1.append(i)
@@ -35,7 +35,7 @@ def addIncome(self,p):
     for key in p.allIncome:
         p.allIncome[key] = income[key - 1][0]
 
-def sortDic(self,p):
+def sortDic(p):
     '''对字典的值进行排序'''
     dic=sorted(p.allIncome.items(),key=lambda d:d[1],reverse=True)
     '''由于dic的type为 ([],[],[],[])需要将其转换为字典'''
@@ -48,8 +48,9 @@ def sortDic(self,p):
     p.allIncomeBySort=fin  #将其存入p
 
 '''---------------------------------------------------------------------------------------------'''
-def wallIncome(self,p):
+def wallIncome(p):
     '''墙壁收益'''
+    print(type(p),"***")
     if p.x-1==0:
         p.wallIncome[1]=-1000
         p.wallIncome[4]=-1000
@@ -99,7 +100,7 @@ def wallIncome(self,p):
 #     for i in range(1,10):
 #         p.randomIncome[i]=random.random()
 
-def isnextCrowded(self,p,allPeople):
+def isnextCrowded(p,allPeople):
     for peo in allPeople:
         p.nextCrowded={1:0.0,2:0.0,3:0.3,4:0.0,5:0.0,6:0.0,7:0.0,8:0.0,9:0.0}
         if p.type==False and peo.type==False:
