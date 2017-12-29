@@ -3,9 +3,9 @@ import Data,Block
 import InitPeople
 import math
 
-def allIncome(self,p,allPeople):
+def outDirection(self,p,allPeople):
     self.addIncome(p)
-    self.wallIncome(p)
+    self.iswallIncome(p)
     # self.distanceIncome(p)
     self.sortDic(p)
     # self.kindIncome(p)
@@ -48,7 +48,7 @@ def sortDic(self,p):
     p.allIncomeBySort=fin  #将其存入p
 
 '''---------------------------------------------------------------------------------------------'''
-def wallIncome(self,p):
+def iswallIncome(self,p):
     '''墙壁收益'''
     if p.x-1==0:
         p.wallIncome[1]=-1000
