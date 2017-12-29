@@ -1,7 +1,7 @@
 flag=True
 
-ROOM_M=40
-ROOM_N=40
+ROOM_M=40 #房间长
+ROOM_N=40 #房间宽
 
 LOGO_NULL=0
 LOGO_PEOPLE=1
