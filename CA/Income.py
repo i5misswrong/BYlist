@@ -6,32 +6,32 @@ import math
 def allIncome(self,p,allPeople):
     self.addIncome(p)
     self.wallIncome(p)
-    self.distanceIncome(p)
+    # self.distanceIncome(p)
     self.sortDic(p)
-    self.kindIncome(p)
+    # self.kindIncome(p)
     self.isnextCrowded(p,allPeople)
-    self.jamIncome(p)
+    # self.jamIncome(p)
 
 def addIncome(self,p):
     v1=[]
     v2=[]
-    v3=[]
-    v4=[]
-    v5=[]
+    # v3=[]
+    # v4=[]
+    # v5=[]
 
     '''计算每个收益将其存入v1,v2,......中'''
     for i in p.wallIncome.value():
         v1.append(i)
-    for i in p.distanceIncome.value():
-        v2.append(i)
-    for i in p.kindIncome.value():
-        v3.append(i)
+    # for i in p.distanceIncome.value():
+    #     v2.append(i)
+    # for i in p.kindIncome.value():
+    #     v3.append(i)
     for i in p.nextCrowded.value():
-        v4.append(i)
-    for i in p.jamIncome.value():
-        v5.append(i)
+        v2.append(i)
+    # for i in p.jamIncome.value():
+    #     v5.append(i)
 
-    income=list(map(lambda x,y,z,q,w:[x+y+z+q+w],v1,v2,v3,v4,v5))
+    income=list(map(lambda x,y:[x+y],v1,v2))
     for key in p.allIncome:
         p.allIncome[key] = income[key - 1][0]
 
