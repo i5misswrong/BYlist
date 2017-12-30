@@ -7,26 +7,37 @@ def creatAppointPeo():
     #         Block.type=1
     #     else:
     #         Block.type=2
-
-    b1=Block.Block(1)
-    b1.x=31
-    b1.y=9
-    b1.type=True
-    allPeople.append(b1)
-    #
-    b2=Block.Block(1)
-    b2.x=37
-    b2.y=9
-    b2.type=False
-    allPeople.append(b2)
-
-    b3 = Block.Block(1)
-    b3.x = 35
-    b3.y = 9
-    b3.type = True
-    allPeople.append(b3)
+    for l in range(6,38,2):
+        for m in range(6,19):
+            for n in range(22,36):
+              p1=Block.Block(1)
+              p2=Block.Block(1)
+              p1.x=l
+              p1.y=m
+              p2.x=l
+              p2.y=n
+              p1.type=True
+              p2.type=True
+              allPeople.append(p1)
+              allPeople.append(p2)
     return allPeople
 
+def creatTable():
+    allTable=[]
+    for i in range(5,37,2):
+        for j in range(6,19):
+            for k in range(22,36):
+              t1=Block.Block(10)
+              t2=Block.Block(10)
+              t1.x=i
+              t1.y=j
+              t2.x=i
+              t2.y=k
+              t1.type=True
+              t2.type=True
+              allTable.append(t1)
+              allTable.append(t2)
+    return allTable
 # def creatWall():
 #     allWall=[]
 #     for i in range(40):

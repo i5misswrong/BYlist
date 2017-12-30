@@ -3,14 +3,13 @@ import Data,Block
 import InitPeople
 import math
 
-<<<<<<< HEAD:CA/Income.py
 def outDirection(self,p,allPeople):
     self.addIncome(p)
     self.iswallIncome(p)
-=======
+
 def allIncome(p,allPeople):
     wallIncome(p)
->>>>>>> 6371ca470c6b48a96c34617216dbb0bf28a6c9ed:CA/Income_copy.py
+
     # self.distanceIncome(p)
     # addIncome(p)
     # sortDic(p)
@@ -54,11 +53,9 @@ def sortDic(p):
     p.allIncomeBySort=fin  #将其存入p
 
 '''---------------------------------------------------------------------------------------------'''
-<<<<<<< HEAD:CA/Income.py
-def iswallIncome(self,p):
-=======
+
 def wallIncome(p):
->>>>>>> 6371ca470c6b48a96c34617216dbb0bf28a6c9ed:CA/Income_copy.py
+
     '''墙壁收益'''
     print(type(p),"***")
     if p.x-1==0:
@@ -111,8 +108,8 @@ def wallIncome(p):
 #         p.randomIncome[i]=random.random()
 
 def isnextCrowded(p,allPeople):
+    p.nextCrowded = {1: 0.0, 2: 0.0, 3: 0.3, 4: 0.0, 5: 0.0, 6: 0.0, 7: 0.0, 8: 0.0, 9: 0.0}
     for peo in allPeople:
-        p.nextCrowded={1:0.0,2:0.0,3:0.3,4:0.0,5:0.0,6:0.0,7:0.0,8:0.0,9:0.0}
         if p.type==False and peo.type==False:
             if p.x-1==peo.x and p.y-1==peo.y:
               p.nextCrowded[1]=1000
