@@ -7,11 +7,13 @@ import Data
 def drawPeople(allPeople,allTable):
     plt.clf()
     # drawBar()
+
     drawWallAndExit()
     p_x=[]
     p_y=[]
     t_x=[]
     t_y=[]
+
     for p in allPeople:
         if p.logo==Data.LOGO_PEOPLE:
             p_x.append(p.x)
@@ -29,6 +31,7 @@ def drawPeople(allPeople,allTable):
     closeFigbutton = Button(closeFig, 'close', hovercolor='0.5')  # 按钮样式
     closeFigbutton.on_clicked(closeFigure)  # 按钮按下去的动作
     plt.pause(1)
+
 
 def closeFigure(event):
     plt.close()  # 将窗口关闭
