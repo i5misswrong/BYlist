@@ -30,19 +30,18 @@ def drawPeople(allPeople,allTable):
     closeFig = plt.axes([0.8, 0.025, 0.1, 0.04])  # 关闭按钮
     closeFigbutton = Button(closeFig, 'close', hovercolor='0.5')  # 按钮样式
     closeFigbutton.on_clicked(closeFigure)  # 按钮按下去的动作
-    plt.pause(1)
+    plt.pause(0.1)
 
 
 def closeFigure(event):
     plt.close()  # 将窗口关闭
     Data.flag = False  # 循环标记为Fasle
 def drawWallAndExit():
-    plt.plot([0,Data.ROOM_M],[0,0],c='b')
-    plt.plot([0,8],[Data.ROOM_N,Data.ROOM_N],c='b')
-    plt.plot([12,Data.ROOM_M],[Data.ROOM_N,Data.ROOM_N],c='b')
-    # plt.plot([0,Data.ROOM_M],[Data.ROOM_N,Data.ROOM_N],c='b')
-    plt.plot([0,0],[0,Data.ROOM_N],c='b')
-    plt.plot([Data.ROOM_M,Data.ROOM_M],[0,Data.ROOM_N],c='b')
+    plt.plot([0,Data.ROOM_M],[0,0],c='b')                         #下方的线
+    plt.plot([0,18],[Data.ROOM_N,Data.ROOM_N],c='b')              #上方的线  左部分
+    plt.plot([22,Data.ROOM_M],[Data.ROOM_N,Data.ROOM_N],c='b')    #上方的线  右部分
+    plt.plot([0,0],[0,Data.ROOM_N],c='b')                         #左方的线
+    plt.plot([Data.ROOM_M,Data.ROOM_M],[0,Data.ROOM_N],c='b')     #右方的线
 # def drawBar():
 #
 #     plt.plot([range(5,37,2),range(5,37,2)],[5,18],marker='s',c='b')
