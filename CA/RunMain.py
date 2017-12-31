@@ -1,21 +1,38 @@
-import InitPeople,Rule,Block,Data,DrawFirst,InCome
+import InitPeople,Rule,Data,DrawFirst,InCome
+import matplotlib.pyplot as plt
+import matplotlib.animation
+import numpy as np
+import time
 
 def run_f():
     allPeople=InitPeople.creatAppointPeo()
+    allTable=InitPeople.creatTable()
+    print(len(allPeople))
     while Data.flag:
         for p in allPeople:
+
+
             d=InCome.PeopleInCome(p,allPeople)
-            if Rule.checkoutPeople(p):
-                d=5
+
+            d = max(p.allInComeBySort.items(), key=lambda x: x[1])[0]
+
+            # if Rule.checkoutPeople(p):
+
 
             Rule.PeopleMove(p,d)
+
             # direction = max(p.allIncomeBySort.items(), key=lambda x: x[1])[0]
+
 
             # Rule.checkoutPeople(p,allPeople)
             # direction=8
             # Rule.PeopleMove(p,direction)
             # print(p.allIncomeBySort)
-        DrawFirst.drawPeople(allPeople)
+            # print(qq)
+        DrawFirst.drawPeople(allPeople,allTable)
+
+
+
 
 
 if __name__=='__main__':
