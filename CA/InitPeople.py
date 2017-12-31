@@ -1,33 +1,31 @@
 import Block,Data,random
-def creatAppointPeo():
+
+# def creatAppointPeo():
+#     allPeople=[]
+#     for l in range(6,38,2):
+#         for m in range(6,19):
+#             # n=range(22,36)
+#             p1=Block.Block(1)
+#             p1.x=l
+#             p1.y=m
+#             p1.type=True
+#             allPeople.append(p1)
+#         for n in range(22,35):
+#             p1=Block.Block(1)
+#             p1.x=l
+#             p1.y=n
+#             p1.type=True
+#             allPeople.append(p1)
+#     return allPeople
+
+def creatOnePeople():
     allPeople=[]
-    # for i in Data.PEOPLE_NUMBER:
-    #     ran = random.random(i)
-    #     if ran>0.5:
-    #         Block.type=1
-    #     else:
-    #         Block.type=2
-
-    # p1 = Block.Block(1)
-    # p1.x=10
-    # p1.y=20
-    # allPeople.append(p1)
-    for l in range(6,38,2):
-        for m in range(6,19):
-            # n=range(22,36)
-            p1=Block.Block(1)
-            p1.x=l
-            p1.y=m
-            p1.type=True
-            allPeople.append(p1)
-        for n in range(22,35):
-            p1=Block.Block(1)
-            p1.x=l
-            p1.y=n
-            p1.type=True
-            allPeople.append(p1)
+    p1=Block.Block(1)
+    p1.x=3
+    p1.y=6
+    p1.type=True
+    allPeople.append(p1)
     return allPeople
-
 def creatTable():
     allTable=[]
     for i in range(5,37,2):
