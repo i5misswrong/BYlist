@@ -4,13 +4,12 @@ import InitPeople
 import math
 
 def PeopleInCome(p,allPeople,allTable):
-             #
     distanceInCome(p,allPeople)    #  距离收益
-    tableInCome(p,allTable)
-    wallInCome(p,allPeople)
-    exitInCome(p,allPeople)
-    addInCome(p, allPeople)
-    sortDic(p)                     #  对各收益进行排序
+    tableInCome(p,allTable)        #  课桌收益
+    wallInCome(p,allPeople)        #  墙壁收益
+    exitInCome(p,allPeople)        #  出口收益
+    addInCome(p, allPeople)        #  将收各益加起来
+    sortDic(p)                     #  对各收益进行排序   #注意排列顺序
 '''------------------------The Data Processing-----------------------------------------------'''
 def addInCome(p,allPeople):
     v1=[]
@@ -133,7 +132,76 @@ def exitInCome(p,allPeople):
 
 
 
-
+#
+# def crowdedInCome(p,allPeople):
+#     p.crowdedInCome={1:0.0,2:0.0,3:0,4:0.0,5:0.0,6:0.0,7:0.0,8:0.0,9:0.0}
+#     for person in allPeople:
+#         if person.x-1==p.x and person.y-1==p.y:
+#             if person.type and p.type:
+#                 if person.isCrowded and p.isCrowded:
+#                     p.crowdedInCome[1]=-500
+#                 else:
+#                     p.crowdedInCome[1]=500
+#                     person.isCrowded=True
+#                     p.isCrowded=True
+#         if person.x==p.x and person.y-1==p.y:
+#             if person.type and p.type:
+#                 if person.isCrowded and p.isCrowded:
+#                     p.crowdedInCome[2]=-500
+#                 else:
+#                     p.crowdedInCome[2]=500
+#                     person.isCrowded=True
+#                     p.isCrowded=True
+#         if person.x+1==p.x and person.y-1==p.y:
+#             if person.type and p.type:
+#                 if person.isCrowded and p.isCrowded:
+#                     p.crowdedInCome[3]=-500
+#                 else:
+#                     p.crowdedInCome[3]=500
+#                     person.isCrowded=True
+#                     p.isCrowded=True
+#         if person.x-1==p.x and person.y==p.y:
+#             if person.type and p.type:
+#                 if person.isCrowded and p.isCrowded:
+#                     p.crowdedInCome[4]=-500
+#                 else:
+#                     p.crowdedInCome[4]=500
+#                     person.isCrowded=True
+#                     p.isCrowded=True
+#         if person.x+1==p.x and person.y==p.y:
+#             if person.type and p.type:
+#                 if person.isCrowded and p.isCrowded:
+#                     p.crowdedInCome[6]=-500
+#                 else:
+#                     p.crowdedInCome[6]=500
+#                     person.isCrowded=True
+#                     p.isCrowded=True
+#         if person.x-1==p.x and person.y+1==p.y:
+#             if person.type and p.type:
+#                 if person.isCrowded and p.isCrowded:
+#                     p.crowdedInCome[7]=-500
+#                 else:
+#                     p.crowdedInCome[7]=500
+#                     person.isCrowded=True
+#                     p.isCrowded=True
+#         if person.x==p.x and person.y+1==p.y:
+#             if person.type and p.type:
+#                 if person.isCrowded and p.isCrowded:
+#                     p.crowdedInCome[8]=-500
+#                 else:
+#                     p.crowdedInCome[8]=500
+#                     person.isCrowded=True
+#                     p.isCrowded=True
+#         if person.x+1==p.x and person.y+1==p.y:
+#             if person.type and p.type:
+#                 if person.isCrowded and p.isCrowded:
+#                     p.crowdedInCome[9]=-500
+#                 else:
+#                     p.crowdedInCome[9]=500
+#                     person.isCrowded=True
+#                     p.isCrowded=True
+#
+#
 
 
 #'''拥挤雏形'''

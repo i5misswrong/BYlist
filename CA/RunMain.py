@@ -5,14 +5,16 @@ import numpy as np
 import time
 
 def run_f():
-    # allPeople=InitPeople.creatAppointPeo()
-    allPeople=InitPeople.creatOnePeople()
+    allPeople=InitPeople.creatAppointPeo()
+    # allPeople=InitPeople.creatOnePeople()
+    print(len(allPeople))
     allTable=InitPeople.creatTable()
     while Data.flag:
         for p in allPeople:
             d=InCome.PeopleInCome(p,allPeople,allTable)
             d = max(p.allInComeBySort.items(), key=lambda x: x[1])[0]
             # if Rule.checkoutPeople(p):
+            Rule.PeopleTypeMove(p,d,allPeople)
             Rule.PeopleMove(p,d)
             Rule.checkoutPeople(p,allPeople)
             # direction = max(p.allIncomeBySort.items(), key=lambda x: x[1])[0]
