@@ -27,7 +27,13 @@ def creatAppointPeo():
             p1.type=True
             allPeople.append(p1)
     return allPeople
-
+def creatOnePeople():
+    allPeople=[]
+    b1=Block.Block(1)
+    b1.x=10
+    b1.y=20
+    allPeople.append(b1)
+    return allPeople
 def creatTable():
     allTable=[]
     for i in range(5,37,2):

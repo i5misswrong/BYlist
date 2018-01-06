@@ -5,7 +5,8 @@ import numpy as np
 import time
 
 def run_f():
-    allPeople=InitPeople.creatAppointPeo()
+    # allPeople=InitPeople.creatAppointPeo()
+    allPeople=InitPeople.creatOnePeople()
     allTable=InitPeople.creatTable()
     print(len(allPeople))
     while Data.flag:

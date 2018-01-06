@@ -26,6 +26,7 @@ def sortDic(p):
 def isdistanceIncome(p,allPeople):
         xexit=20
         yexit=Data.ROOM_N
+
         # for peo in allPeople:
             # p.nextCrowded = {1:0.0,2:0.0,3:0.3,4:0.0,5:0.0,6:0.0,7: 0.0,8:0.0,9: 0.0}
             # if p.x - 1 == peo.x and p.y - 1 == peo.y:
@@ -89,13 +90,14 @@ def isdistanceIncome(p,allPeople):
                     p.distanceIncome[8]=math.sqrt((p.x-xexit)**2+(p.y+1-yexit)**2)
 
                 if p.x+1==peo.x and p.y+1==peo.y:
-                    p.distanceIncome[9]=-1000
+                    p.distanceIncome[9]=countD(xexit,yexit,p.x+1,p.y-1)
                 else:
-                    p.distanceIncome[9]=math.sqrt((p.x+1-xexit)**2+(p.y+1-yexit)**2)
+                    p.distanceIncome[9]=math.sqrt((p.x+1-Data.EXIT_X)**2+(p.y+1-Data.EXIT_Y)**2)
         else:
                    pass
 
-
+def countD(e_x,e_y,p_x,p_y):
+    return math.sqrt((p_x-e_x)**2+(p_y-e_y)**2)
 
 
     # '''拥挤雏形'''
