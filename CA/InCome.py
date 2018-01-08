@@ -25,7 +25,7 @@ def addInCome(p,allPeople):
         v3.append(i)
     for i in p.exitInCome.values():
         v4.append(i)
-    for i in p.exitInCome.values():
+    for i in p.crowdedInCome.values():
         v5.append(i)
     income = list(map(lambda x,y,z,q,m: [x+y+z+q+m],v1,v2,v3,v4,v5))
     for key in p.allInCome:
@@ -41,7 +41,7 @@ def sortDic(p):
     p.allInComeBySort=fin
 '''-----------------------The calculation of InCome-------------------------------------------'''
 def distanceFormula(d_x,d_y,e_x,e_y):            #距离公式
-    des=(math.sqrt((d_x-e_x)**2+(d_y-e_y)**2)*1000)
+    des=(math.sqrt((d_x-e_x)**2+(d_y-e_y)**2)*1)
     if des==0:
         des=0.001
     return 1/des
@@ -83,43 +83,43 @@ def tableInCome(p,allTable):
 
 def wallInCome(p,allPeople):
     p.wallInCome={1:0.0,2:0.0,3:0,4:0.0,5:0.0,6:0.0,7:0.0,8:0.0,9:0.0}
-    if p.x==0 and p.y==0:
+    if p.x==1 and p.y==1:
         p.wallInCome[1]=-1000
         p.wallInCome[2]=-1000
         p.wallInCome[3]=-1000
         p.wallInCome[4]=-1000
         p.wallInCome[7]=-1000
-    elif p.x==0 and p.y==Data.ROOM_N:
+    elif p.x==1 and p.y==Data.ROOM_N-1:
         p.wallInCome[1]=-1000
         p.wallInCome[4]=-1000
         p.wallInCome[7]=-1000
         p.wallInCome[8]=-1000
         p.wallInCome[9]=-1000
-    elif p.x==Data.ROOM_M and p.y==0:
+    elif p.x==Data.ROOM_M-1 and p.y==1:
         p.wallInCome[1]=-1000
         p.wallInCome[2]=-1000
         p.wallInCome[3]=-1000
         p.wallInCome[6]=-1000
         p.wallInCome[9]=-1000
-    elif p.x==Data.ROOM_M and p.y==Data.ROOM_N:
+    elif p.x==Data.ROOM_M-1 and p.y==Data.ROOM_N-1:
         p.wallInCome[3]=-1000
         p.wallInCome[6]=-1000
         p.wallInCome[9]=-1000
         p.wallInCome[8]=-1000
         p.wallInCome[7]=-1000
-    elif p.y==Data.ROOM_N:
+    elif p.y==Data.ROOM_N-1:
         p.wallInCome[7]=-1000
         p.wallInCome[8]=-1000
         p.wallInCome[9]=-1000
-    elif p.y==0:
+    elif p.y==1:
         p.wallInCome[1]=-1000
         p.wallInCome[2]=-1000
         p.wallInCome[3]=-1000
-    elif p.x==0:
+    elif p.x==1:
         p.wallInCome[1]=-1000
         p.wallInCome[4]=-1000
         p.wallInCome[7]=-1000
-    elif p.x==Data.ROOM_M:
+    elif p.x==Data.ROOM_M-1:
         p.wallInCome[9]=-1000
         p.wallInCome[6]=-1000
         p.wallInCome[3]=-1000
@@ -127,80 +127,68 @@ def wallInCome(p,allPeople):
 
 def exitInCome(p,allPeople):
     p.exitInCome={1:0.0,2:0.0,3:0,4:0.0,5:0.0,6:0.0,7:0.0,8:0.0,9:0.0}
-    if p.x==Data.EXIT_X and p.y==Data.EXIT_Y:
-        p.exitInCome[8]=1500
+    # if p.x==Data.EXIT_X and p.y==Data.EXIT_Y:
+    #     p.exitInCome[8]=1500
+    # if p.x==Data.EXIT_X and p.y+1==Data.EXIT_Y:
+    #     p.exitInCome[8]=10000
+    if p.x>=18 and p.x<=22 and p.y+1==Data.EXIT_Y:
+        p.exitInCome[7]=10000
+        p.exitInCome[8]=10000
+        p.exitInCome[9]=10000
 
 
 
-#
-# def crowdedInCome(p,allPeople):
-#     p.crowdedInCome={1:0.0,2:0.0,3:0,4:0.0,5:0.0,6:0.0,7:0.0,8:0.0,9:0.0}
-#     for person in allPeople:
-#         if person.x-1==p.x and person.y-1==p.y:
-#             if person.type and p.type:
-#                 if person.isCrowded and p.isCrowded:
-#                     p.crowdedInCome[1]=-500
-#                 else:
-#                     p.crowdedInCome[1]=500
-#                     person.isCrowded=True
-#                     p.isCrowded=True
-#         if person.x==p.x and person.y-1==p.y:
-#             if person.type and p.type:
-#                 if person.isCrowded and p.isCrowded:
-#                     p.crowdedInCome[2]=-500
-#                 else:
-#                     p.crowdedInCome[2]=500
-#                     person.isCrowded=True
-#                     p.isCrowded=True
-#         if person.x+1==p.x and person.y-1==p.y:
-#             if person.type and p.type:
-#                 if person.isCrowded and p.isCrowded:
-#                     p.crowdedInCome[3]=-500
-#                 else:
-#                     p.crowdedInCome[3]=500
-#                     person.isCrowded=True
-#                     p.isCrowded=True
-#         if person.x-1==p.x and person.y==p.y:
-#             if person.type and p.type:
-#                 if person.isCrowded and p.isCrowded:
-#                     p.crowdedInCome[4]=-500
-#                 else:
-#                     p.crowdedInCome[4]=500
-#                     person.isCrowded=True
-#                     p.isCrowded=True
-#         if person.x+1==p.x and person.y==p.y:
-#             if person.type and p.type:
-#                 if person.isCrowded and p.isCrowded:
-#                     p.crowdedInCome[6]=-500
-#                 else:
-#                     p.crowdedInCome[6]=500
-#                     person.isCrowded=True
-#                     p.isCrowded=True
-#         if person.x-1==p.x and person.y+1==p.y:
-#             if person.type and p.type:
-#                 if person.isCrowded and p.isCrowded:
-#                     p.crowdedInCome[7]=-500
-#                 else:
-#                     p.crowdedInCome[7]=500
-#                     person.isCrowded=True
-#                     p.isCrowded=True
-#         if person.x==p.x and person.y+1==p.y:
-#             if person.type and p.type:
-#                 if person.isCrowded and p.isCrowded:
-#                     p.crowdedInCome[8]=-500
-#                 else:
-#                     p.crowdedInCome[8]=500
-#                     person.isCrowded=True
-#                     p.isCrowded=True
-#         if person.x+1==p.x and person.y+1==p.y:
-#             if person.type and p.type:
-#                 if person.isCrowded and p.isCrowded:
-#                     p.crowdedInCome[9]=-500
-#                 else:
-#                     p.crowdedInCome[9]=500
-#                     person.isCrowded=True
-#                     p.isCrowded=True
-#
+def crowdedInCome(p,allPeople):
+    p.crowdedInCome={1:0.0,2:0.0,3:0,4:0.0,5:0.0,6:0.0,7:0.0,8:0.0,9:0.0}
+    for person in allPeople:
+        if p.x-1==person.x and p.y-1==person.y:
+            if person.type and p.type:
+                if person.isCrowded and p.isCrowded:
+                    p.crowdedInCome[1]=-500
+                else:
+                    p.crowdedInCome[1]=500
+        if p.x==person.x and p.y-1==person.y:
+            if person.type and p.type:
+                if person.isCrowded and p.isCrowded:
+                    p.crowdedInCome[2]=-500
+                else:
+                    p.crowdedInCome[2]=500
+        if p.x+1==person.x and p.y-1==person.y:
+            if person.type and p.type:
+                if person.isCrowded and p.isCrowded:
+                    p.crowdedInCome[3]=-500
+                else:
+                    p.crowdedInCome[3]=500
+        if p.x-1==person.x and p.y==person.y:
+            if person.type and p.type:
+                if person.isCrowded and p.isCrowded:
+                    p.crowdedInCome[4]=-500
+                else:
+                    p.crowdedInCome[4]=500
+        if p.x+1==person.x and p.y==person.y:
+            if person.type and p.type:
+                if person.isCrowded and p.isCrowded:
+                    p.crowdedInCome[6]=-500
+                else:
+                    p.crowdedInCome[6]=500
+        if p.x-1==person.x and p.y+1==person.y:
+            if person.type and p.type:
+                if person.isCrowded and p.isCrowded:
+                    p.crowdedInCome[7]=-500
+                else:
+                    p.crowdedInCome[7]=500
+        if person.x==p.x and person.y+1==p.y:
+            if person.type and p.type:
+                if person.isCrowded and p.isCrowded:
+                    p.crowdedInCome[8]=-500
+                else:
+                    p.crowdedInCome[8]=500
+        if p.x+1==person.x and p.y+1==person.y:
+            if person.type and p.type:
+                if person.isCrowded and p.isCrowded:
+                    p.crowdedInCome[9]=-500
+                else:
+                    p.crowdedInCome[9]=500
 #
 
 

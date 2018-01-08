@@ -13,11 +13,16 @@ def drawPeople(allPeople,allTable):
     p_y=[]
     t_x=[]
     t_y=[]
-
+    c_x=[]
+    c_y=[]
     for p in allPeople:
         if p.logo==Data.LOGO_PEOPLE:
-            p_x.append(p.x)
-            p_y.append(p.y)
+            if p.type:
+                p_x.append(p.x)
+                p_y.append(p.y)
+            else:
+                c_x.append(p.x)
+                c_y.append(p.y)
     for t in allTable:
         t_x.append(t.x)
         t_y.append(t.y)
@@ -26,6 +31,7 @@ def drawPeople(allPeople,allTable):
 
     plt.subplot(1,1,1)
     plt.scatter(p_x,p_y,c='r')
+    plt.scatter(c_x, c_y, c='b')
     plt.scatter(t_x, t_y, marker='s',c='y')
     closeFig = plt.axes([0.8, 0.025, 0.1, 0.04])  # 关闭按钮
     closeFigbutton = Button(closeFig, 'close', hovercolor='0.5')  # 按钮样式

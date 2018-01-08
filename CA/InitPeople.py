@@ -24,15 +24,15 @@ def creatAppointPeo():
             allPeople.append(p1)
     return allPeople
 
-# def creatOnePeople():
-#     allPeople=[]
-#     p1=Block.Block(1)
-#     p1.x=3
-#     p1.y=6
-#     p1.type=True
-#     p1.isCrowded=False
-#     allPeople.append(p1)
-#     return allPeople
+def creatOnePeople():
+    allPeople=[]
+    p1=Block.Block(1)
+    p1.x=20
+    p1.y=30
+    p1.type=True
+    p1.isCrowded=False
+    allPeople.append(p1)
+    return allPeople
 
 def creatTable():
     allTable=[]
