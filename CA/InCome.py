@@ -8,6 +8,7 @@ def PeopleInCome(p,allPeople,allTable):
     tableInCome(p,allTable)        #  课桌收益
     wallInCome(p,allPeople)        #  墙壁收益
     exitInCome(p,allPeople)        #  出口收益
+    jamInCome(p,allPeople)         #
     addInCome(p, allPeople)        #  将收各益加起来
     sortDic(p)                     #  对各收益进行排序   #注意排列顺序
 '''------------------------The Data Processing-----------------------------------------------'''
@@ -17,6 +18,7 @@ def addInCome(p,allPeople):
     v3=[]
     v4=[]
     v5=[]
+    v6=[]
     for i in p.distanceInCome.values():
         v1.append(i)
     for i in p.wallInCome.values():
@@ -27,7 +29,9 @@ def addInCome(p,allPeople):
         v4.append(i)
     for i in p.crowdedInCome.values():
         v5.append(i)
-    income = list(map(lambda x,y,z,q,m: [x+y+z+q+m],v1,v2,v3,v4,v5))
+    for i in p.jamInCome.values():
+        v6.append(i)
+    income = list(map(lambda x,y,z,q,m,n: [x+y+z+q+m+n],v1,v2,v3,v4,v5,v6))
     for key in p.allInCome:
         p.allInCome[key] = income[key - 1][0]
 def sortDic(p):
@@ -132,9 +136,9 @@ def exitInCome(p,allPeople):
     # if p.x==Data.EXIT_X and p.y+1==Data.EXIT_Y:
     #     p.exitInCome[8]=10000
     if p.x>=18 and p.x<=22 and p.y+1==Data.EXIT_Y:
-        p.exitInCome[7]=10000
+        p.exitInCome[7]=9000
         p.exitInCome[8]=10000
-        p.exitInCome[9]=10000
+        p.exitInCome[9]=9000
 
 
 
@@ -189,7 +193,24 @@ def crowdedInCome(p,allPeople):
                     p.crowdedInCome[9]=-500
                 else:
                     p.crowdedInCome[9]=500
-#
+
+def jamInCome(p,allPeople):
+    p.jamInCome={1:0.0,2:0.0,3:0,4:0.0,5:0.0,6:0.0,7:0.0,8:0.0,9:0.0}
+    for p1 in allPeople:
+        if 0<=p.y<=35 and 0<=p1.y<=35 and \
+                (p1.x==p.x-1 and p1.y==p.y+1) or (p1.x==p.x and p1.y==p.y+1)\
+                or (p1.x==p.x+1 and p1.y==p.y+1) and p1.isCrowded:
+            p.jamInCome[1]=-1000
+            p.jamInCome[2]=-1000
+            p.jamInCome[3]=-1000
+            p.jamInCome[4]=-1000
+            p.jamInCome[5]=500
+            p.jamInCome[6]=-1000
+            p.jamInCome[7]=-1000
+            p.jamInCome[8]=-1000
+            p.jamInCome[9]=-1000
+
+
 
 
 #'''拥挤雏形'''

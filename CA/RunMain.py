@@ -15,9 +15,10 @@ def run_f():
             d=InCome.PeopleInCome(p,allPeople,allTable)
             d = max(p.allInComeBySort.items(), key=lambda x: x[1])[0]
             # if Rule.checkoutPeople(p):
-            Rule.PeopleTypeMove(p,d,allPeople)
-            Rule.PeopleMove(p,d)
-            Rule.checkoutPeople(p,allPeople)
+            Rule.peopleGatherMove(p, d, allPeople)     # 挤压
+            Rule.peopleScatterMove(p,d,allPeople)      #挤压消除
+            Rule.PeopleMove(p,d)                     #普通
+            Rule.checkoutPeople(p,allPeople)         #移出系统
             # direction = max(p.allIncomeBySort.items(), key=lambda x: x[1])[0]
             # Rule.checkoutPeople(p,allPeople)
             # direction=8
