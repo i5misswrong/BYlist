@@ -43,7 +43,7 @@ def creatTable():
             t1.y=j
             t1.type=True
             allTable.append(t1)
-        for k in range(22, 36):
+        for k in range(22, 35):
             t1 = Block.Block(10)
             t1.x = i
             t1.y = k

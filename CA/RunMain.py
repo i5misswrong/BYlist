@@ -9,6 +9,7 @@ def run_f():
     # allPeople=InitPeople.creatOnePeople()
     print(len(allPeople))
     allTable=InitPeople.creatTable()
+    Data.STATIC_FIELD=Data.STATIC_FIELD()
     while Data.flag:
         random.shuffle(allPeople)
         for p in allPeople:

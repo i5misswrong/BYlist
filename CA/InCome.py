@@ -8,7 +8,8 @@ def PeopleInCome(p,allPeople,allTable):
     tableInCome(p,allTable)        #  课桌收益
     wallInCome(p,allPeople)        #  墙壁收益
     exitInCome(p,allPeople)        #  出口收益
-    jamInCome(p,allPeople)         #
+    staticfieldInCome(p,allPeople) #  静态场收益
+    jamInCome(p,allPeople)         #  拥挤收益
     addInCome(p, allPeople)        #  将收各益加起来
     sortDic(p)                     #  对各收益进行排序   #注意排列顺序
 '''------------------------The Data Processing-----------------------------------------------'''
@@ -19,6 +20,7 @@ def addInCome(p,allPeople):
     v4=[]
     v5=[]
     v6=[]
+    v7=[]
     for i in p.distanceInCome.values():
         v1.append(i)
     for i in p.wallInCome.values():
@@ -31,7 +33,9 @@ def addInCome(p,allPeople):
         v5.append(i)
     for i in p.jamInCome.values():
         v6.append(i)
-    income = list(map(lambda x,y,z,q,m,n: [x+y+z+q+m+n],v1,v2,v3,v4,v5,v6))
+    for i in p.staticfieldInCome.values():
+        v7.append(i)
+    income = list(map(lambda x,y,z,q,m,n,o: [x+y+z+q+m+n+o],v1,v2,v3,v4,v5,v6,v7))
     for key in p.allInCome:
         p.allInCome[key] = income[key - 1][0]
 def sortDic(p):
@@ -62,7 +66,7 @@ def distanceInCome(p,allPeople):                 #计算距离收益
     p.distanceInCome[8]=distanceFormula(p.x,p.y+1,Data.EXIT_X,Data.EXIT_Y)
     p.distanceInCome[9]=distanceFormula(p.x+1,p.y+1,Data.EXIT_X,Data.EXIT_Y)
 
-def tableInCome(p,allTable):
+def tableInCome(p,allTable):                    #桌椅收益
     p.tableInCome={1:0.0,2:0.0,3:0,4:0.0,5:0.0,6:0.0,7:0.0,8:0.0,9:0.0}
     for tab in allTable:
         if p.x-1==tab.x and p.y-1==tab.y:
@@ -85,7 +89,7 @@ def tableInCome(p,allTable):
             p.tableInCome[9]=-1000
 
 
-def wallInCome(p,allPeople):
+def wallInCome(p,allPeople):                       #墙壁收益
     p.wallInCome={1:0.0,2:0.0,3:0,4:0.0,5:0.0,6:0.0,7:0.0,8:0.0,9:0.0}
     if p.x==1 and p.y==1:
         p.wallInCome[1]=-1000
@@ -129,7 +133,7 @@ def wallInCome(p,allPeople):
         p.wallInCome[3]=-1000
 
 
-def exitInCome(p,allPeople):
+def exitInCome(p,allPeople):                      #出口收益
     p.exitInCome={1:0.0,2:0.0,3:0,4:0.0,5:0.0,6:0.0,7:0.0,8:0.0,9:0.0}
     # if p.x==Data.EXIT_X and p.y==Data.EXIT_Y:
     #     p.exitInCome[8]=1500
@@ -142,7 +146,7 @@ def exitInCome(p,allPeople):
 
 
 
-def crowdedInCome(p,allPeople):
+def crowdedInCome(p,allPeople):                   #拥挤收益（行人拥挤时isCrowded和type的变化）
     p.crowdedInCome={1:0.0,2:0.0,3:0,4:0.0,5:0.0,6:0.0,7:0.0,8:0.0,9:0.0}
     for person in allPeople:
         if p.x-1==person.x and p.y-1==person.y:
@@ -194,7 +198,7 @@ def crowdedInCome(p,allPeople):
                 else:
                     p.crowdedInCome[9]=500
 
-def jamInCome(p,allPeople):
+def jamInCome(p,allPeople):                    #拥挤收益（周围拥挤元胞的影响）
     p.jamInCome={1:0.0,2:0.0,3:0,4:0.0,5:0.0,6:0.0,7:0.0,8:0.0,9:0.0}
     for p1 in allPeople:
         if 0<=p.y<=35 and 0<=p1.y<=35 and \
@@ -210,6 +214,17 @@ def jamInCome(p,allPeople):
             p.jamInCome[8]=-1000
             p.jamInCome[9]=-1000
 
+def staticfieldInCome(p,allPeople):            #静态场收益
+    p.staticfieldInCome={1:0.0,2:0.0,3:0.3,4:0.0,5:0.0,6:0.0,7:0.0,8:0.0,9:0.0}
+    p.staticfieldInCome[1]=Data.STATIC_FIELD[p.x-1][p.y-1]
+    p.staticfieldInCome[2]=Data.STATIC_FIELD[p.x][p.y-1]
+    p.staticfieldInCome[3]=Data.STATIC_FIELD[p.x+1][p.y-1]
+    p.staticfieldInCome[4]=Data.STATIC_FIELD[p.x-1][p.y]
+    p.staticfieldInCome[5]=Data.STATIC_FIELD[p.x][p.y]
+    p.staticfieldInCome[6]=Data.STATIC_FIELD[p.x+1][p.y]
+    p.staticfieldInCome[7]=Data.STATIC_FIELD[p.x-1][p.y+1]
+    p.staticfieldInCome[8]=Data.STATIC_FIELD[p.x][p.y+1]
+    p.staticfieldInCome[9]=Data.STATIC_FIELD[p.x+1][p.y+1]
 
 
 
