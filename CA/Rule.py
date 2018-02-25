@@ -127,7 +127,7 @@ def PeopleMove(p,direction):
 #         a=[]
 
 def checkoutPeople(p,allPeople):
-    if (p.x>=18 and p.x<=22) and p.y>=Data.ROOM_N:
+    if (p.x>18 and p.x<22) and p.y>=Data.ROOM_N-1:
     # if p.x==20 and p.y>=Data.ROOM_N:
         allPeople.remove(p)
     # if p.x+2>Data.ROOM_M:

@@ -49,9 +49,9 @@ def sortDic(p):
     p.allInComeBySort=fin
 '''-----------------------The calculation of InCome-------------------------------------------'''
 def distanceFormula(d_x,d_y,e_x,e_y):            #距离公式
-    des=(math.sqrt((d_x-e_x)**2+(d_y-e_y)**2)*1)
+    des=(math.sqrt((d_x-e_x)**2+(d_y-e_y)**2)*0.00001)
     if des==0:
-        des=0.001
+        des=0.00001
     return 1/des
 
 def distanceInCome(p,allPeople):                 #计算距离收益
@@ -92,45 +92,45 @@ def tableInCome(p,allTable):                    #桌椅收益
 def wallInCome(p,allPeople):                       #墙壁收益
     p.wallInCome={1:0.0,2:0.0,3:0,4:0.0,5:0.0,6:0.0,7:0.0,8:0.0,9:0.0}
     if p.x==1 and p.y==1:
-        p.wallInCome[1]=-1000
-        p.wallInCome[2]=-1000
-        p.wallInCome[3]=-1000
-        p.wallInCome[4]=-1000
-        p.wallInCome[7]=-1000
+        p.wallInCome[1]=-100000
+        p.wallInCome[2]=-100000
+        p.wallInCome[3]=-100000
+        p.wallInCome[4]=-100000
+        p.wallInCome[7]=-100000
     elif p.x==1 and p.y==Data.ROOM_N-1:
-        p.wallInCome[1]=-1000
-        p.wallInCome[4]=-1000
-        p.wallInCome[7]=-1000
-        p.wallInCome[8]=-1000
-        p.wallInCome[9]=-1000
+        p.wallInCome[1]=-100000
+        p.wallInCome[4]=-100000
+        p.wallInCome[7]=-100000
+        p.wallInCome[8]=-100000
+        p.wallInCome[9]=-100000
     elif p.x==Data.ROOM_M-1 and p.y==1:
-        p.wallInCome[1]=-1000
-        p.wallInCome[2]=-1000
-        p.wallInCome[3]=-1000
-        p.wallInCome[6]=-1000
-        p.wallInCome[9]=-1000
+        p.wallInCome[1]=-100000
+        p.wallInCome[2]=-100000
+        p.wallInCome[3]=-100000
+        p.wallInCome[6]=-100000
+        p.wallInCome[9]=-100000
     elif p.x==Data.ROOM_M-1 and p.y==Data.ROOM_N-1:
-        p.wallInCome[3]=-1000
-        p.wallInCome[6]=-1000
-        p.wallInCome[9]=-1000
-        p.wallInCome[8]=-1000
-        p.wallInCome[7]=-1000
+        p.wallInCome[3]=-100000
+        p.wallInCome[6]=-100000
+        p.wallInCome[9]=-100000
+        p.wallInCome[8]=-100000
+        p.wallInCome[7]=-100000
     elif p.y==Data.ROOM_N-1:
-        p.wallInCome[7]=-1000
-        p.wallInCome[8]=-1000
-        p.wallInCome[9]=-1000
+        p.wallInCome[7]=-100000
+        p.wallInCome[8]=-100000
+        p.wallInCome[9]=-100000
     elif p.y==1:
-        p.wallInCome[1]=-1000
-        p.wallInCome[2]=-1000
-        p.wallInCome[3]=-1000
+        p.wallInCome[1]=-100000
+        p.wallInCome[2]=-100000
+        p.wallInCome[3]=-100000
     elif p.x==1:
-        p.wallInCome[1]=-1000
-        p.wallInCome[4]=-1000
-        p.wallInCome[7]=-1000
+        p.wallInCome[1]=-100000
+        p.wallInCome[4]=-100000
+        p.wallInCome[7]=-100000
     elif p.x==Data.ROOM_M-1:
-        p.wallInCome[9]=-1000
-        p.wallInCome[6]=-1000
-        p.wallInCome[3]=-1000
+        p.wallInCome[9]=-100000
+        p.wallInCome[6]=-100000
+        p.wallInCome[3]=-100000
 
 
 def exitInCome(p,allPeople):                      #出口收益
@@ -216,15 +216,18 @@ def jamInCome(p,allPeople):                    #拥挤收益（周围拥挤元�
 
 def staticfieldInCome(p,allPeople):            #静态场收益
     p.staticfieldInCome={1:0.0,2:0.0,3:0.3,4:0.0,5:0.0,6:0.0,7:0.0,8:0.0,9:0.0}
-    p.staticfieldInCome[1]=Data.STATIC_FIELD[p.x-1][p.y-1]
-    p.staticfieldInCome[2]=Data.STATIC_FIELD[p.x][p.y-1]
-    p.staticfieldInCome[3]=Data.STATIC_FIELD[p.x+1][p.y-1]
-    p.staticfieldInCome[4]=Data.STATIC_FIELD[p.x-1][p.y]
-    p.staticfieldInCome[5]=Data.STATIC_FIELD[p.x][p.y]
-    p.staticfieldInCome[6]=Data.STATIC_FIELD[p.x+1][p.y]
-    p.staticfieldInCome[7]=Data.STATIC_FIELD[p.x-1][p.y+1]
-    p.staticfieldInCome[8]=Data.STATIC_FIELD[p.x][p.y+1]
-    p.staticfieldInCome[9]=Data.STATIC_FIELD[p.x+1][p.y+1]
+    if p.x<=38 and p.x>=2 and p.y>=2 and p.y<=38:
+        p.staticfieldInCome[1]=Data.STATIC_FIELD[p.x-1][p.y-1]
+        p.staticfieldInCome[2]=Data.STATIC_FIELD[p.x][p.y-1]
+        p.staticfieldInCome[3]=Data.STATIC_FIELD[p.x+1][p.y-1]
+        p.staticfieldInCome[4]=Data.STATIC_FIELD[p.x-1][p.y]
+        p.staticfieldInCome[5]=Data.STATIC_FIELD[p.x][p.y]
+        p.staticfieldInCome[6]=Data.STATIC_FIELD[p.x+1][p.y]
+        p.staticfieldInCome[7]=Data.STATIC_FIELD[p.x-1][p.y+1]
+        p.staticfieldInCome[8]=Data.STATIC_FIELD[p.x][p.y+1]
+        p.staticfieldInCome[9]=Data.STATIC_FIELD[p.x+1][p.y+1]
+    else:
+        pass
 
 
 
