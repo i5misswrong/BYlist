@@ -3,6 +3,7 @@ class Block():
         self.logo=logo
         self.x=0
         self.y=0
+        self.dbg=0
         self.type=True
         self.isCrowded=False
         self.isMove=True

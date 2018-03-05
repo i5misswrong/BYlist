@@ -1,5 +1,5 @@
 import random
-import Data,Block,InitPeople
+import Data,Block,InitPeople,Rule
 import InitPeople
 import math
 

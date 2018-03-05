@@ -52,46 +52,67 @@ def peopleScatterMove(p,d,allPeople):
                 volvo.isMove=True
             else:
                 pass
-        # if d==1 and p.isCrowded and volvo.isCrowded:
-        #     p.isCrowded=False
-        #     volvo.isCrowded=False
-        #     p.isMove=True
-        #     volvo.isMove=True
-        # elif d==2 and p.isCrowded and volvo.isCrowded:
-        #     p.isCrowded=False
-        #     volvo.isCrowded=False
-        #     p.isMove=True
-        #     volvo.isMove=True
-        # elif d==3 and p.isCrowded and volvo.isCrowded:
-        #     p.isCrowded=False
-        #     volvo.isCrowded=False
-        #     p.isMove=True
-        #     volvo.isMove=True
-        # elif d==4 and p.isCrowded and volvo.isCrowded:
-        #     p.isCrowded=False
-        #     volvo.isCrowded=False
-        #     p.isMove=True
-        #     volvo.isMove=True
-        # elif d==6 and p.isCrowded and volvo.isCrowded:
-        #     p.isCrowded=False
-        #     volvo.isCrowded=False
-        #     p.isMove=True
-        #     volvo.isMove=True
-        # elif d==7 and p.isCrowded and volvo.isCrowded:
-        #     p.isCrowded=False
-        #     volvo.isCrowded=False
-        #     p.isMove=True
-        #     volvo.isMove=True
-        # elif d==8 and p.isCrowded and volvo.isCrowded:
-        #     p.isCrowded=False
-        #     volvo.isCrowded=False
-        #     p.isMove=True
-        #     volvo.isMove=True
-        # elif d==9 and p.isCrowded and volvo.isCrowded:
-        #     p.isCrowded=False
-        #     volvo.isCrowded=False
-        #     p.isMove=True
-        #     volvo.isMove=True
+
+'''教室下部行人移动'''
+def bottomMove(p,d,allPeople):
+    for bmw in allPeople:
+        if p.y+1==bmw.y and p.x==bmw.x:
+            d=5
+            return d
+        else:
+            d=8
+    return d
+
+'''教室下部行人移动（测试用）'''
+def bottomMove2(p, d, allPeople):
+    for bmw in allPeople:
+        print(bmw.y)
+        if p.y - 1 == bmw.y and p.x == bmw.x:
+            d = 5
+            return d
+        else:
+            d = 2
+    return d
+                # if d==1 and p.isCrowded and volvo.isCrowded:
+                #     p.isCrowded=False
+                #     volvo.isCrowded=False
+                #     p.isMove=True
+                #     volvo.isMove=True
+                # elif d==2 and p.isCrowded and volvo.isCrowded:
+                #     p.isCrowded=False
+                #     volvo.isCrowded=False
+                #     p.isMove=True
+                #     volvo.isMove=True
+                # elif d==3 and p.isCrowded and volvo.isCrowded:
+                #     p.isCrowded=False
+                #     volvo.isCrowded=False
+                #     p.isMove=True
+                #     volvo.isMove=True
+                # elif d==4 and p.isCrowded and volvo.isCrowded:
+                #     p.isCrowded=False
+                #     volvo.isCrowded=False
+                #     p.isMove=True
+                #     volvo.isMove=True
+                # elif d==6 and p.isCrowded and volvo.isCrowded:
+                #     p.isCrowded=False
+                #     volvo.isCrowded=False
+                #     p.isMove=True
+                #     volvo.isMove=True
+                # elif d==7 and p.isCrowded and volvo.isCrowded:
+                #     p.isCrowded=False
+                #     volvo.isCrowded=False
+                #     p.isMove=True
+                #     volvo.isMove=True
+                # elif d==8 and p.isCrowded and volvo.isCrowded:
+                #     p.isCrowded=False
+                #     volvo.isCrowded=False
+                #     p.isMove=True
+                #     volvo.isMove=True
+                # elif d==9 and p.isCrowded and volvo.isCrowded:
+                #     p.isCrowded=False
+                #     volvo.isCrowded=False
+                #     p.isMove=True
+                #     volvo.isMove=True
 def PeopleMove(p,direction):
     if p.isMove:
         if direction==1:

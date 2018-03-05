@@ -28,10 +28,19 @@ def creatOnePeople():
     allPeople=[]
     p1=Block.Block(1)
     p1.x=20
-    p1.y=30
+    p1.y=10
     p1.type=True
     p1.isCrowded=False
+
+    p2 = Block.Block(1)
+    p2.x = 20
+    p2.y = 20
+    p2.type = True
+    p2.isCrowded = False
+    p2.dbg=1
+
     allPeople.append(p1)
+    allPeople.append(p2)
     return allPeople
 
 def creatTable():
