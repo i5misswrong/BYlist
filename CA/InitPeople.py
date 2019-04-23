@@ -1,23 +1,69 @@
-import Block
+import Block,Data,random
+
 def creatAppointPeo():
     allPeople=[]
-
-    b1=Block.Block(1)
-    b1.x=3
-    b1.y=5
-    b1.type=True
-    allPeople.append(b1)
-
-    b2=Block.Block(1)
-    b2.x=4
-    b2.y=5
-    b2.type=False
-    allPeople.append(b2)
-
-    b3 = Block.Block(1)
-    b3.x = 10
-    b3.y = 10
-    b3.type = True
-    allPeople.append(b3)
-
+      # for exm in range(1,416):
+      #     rand=random(exm)
+      #     if rand>0.5:
+      #         pass
+      #     else:
+      #         pass
+    for l in range(6,38,2):
+        for m in range(6,19):
+            # n=range(22,36)
+            p1=Block.Block(1)
+            p1.x=l
+            p1.y=m
+            p1.type=True
+            allPeople.append(p1)
+        for n in range(22,35):
+            p1=Block.Block(1)
+            p1.x=l
+            p1.y=n
+            p1.type=True
+            allPeople.append(p1)
     return allPeople
+
+def creatOnePeople():
+    allPeople=[]
+    p1=Block.Block(1)
+    p1.x=20
+    p1.y=10
+    p1.type=True
+    p1.isCrowded=False
+
+    p2 = Block.Block(1)
+    p2.x = 20
+    p2.y = 20
+    p2.type = True
+    p2.isCrowded = False
+    p2.dbg=1
+
+    allPeople.append(p1)
+    allPeople.append(p2)
+    return allPeople
+
+def creatTable():
+    allTable=[]
+    for i in range(5,37,2):
+        for j in range(6,19):
+            t1=Block.Block(10)
+            t1.x=i
+            t1.y=j
+            t1.type=True
+            allTable.append(t1)
+        for k in range(22, 35):
+            t1 = Block.Block(10)
+            t1.x = i
+            t1.y = k
+            t1.type = True
+            allTable.append(t1)
+    return allTable
+# def creatWall():
+#     allWall=[]
+#     for i in range(40):
+#         for ii in range(8):
+#             D=[i,0]
+#             U=[ii,0]
+#             L=[0,i]
+#             R=[Data.ROOM_M,i]
